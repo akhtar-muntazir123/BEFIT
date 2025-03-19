@@ -3,6 +3,7 @@ import * as dotenv from "dotenv"
 import cors from "cors"
 import mongoose from "mongoose"
 import UserRoutes from "./routes/User.js"
+const port=process.env.PORT || 8080
 
 dotenv.config();
 const app = express();
@@ -37,7 +38,7 @@ const connectDb=()=>{
 const startServer = async () => {
     try {
         connectDb();
-        app.listen(8080, () => {
+        app.listen(port, () => {
             console.log("Server is running on port 8080")
         })
     }
